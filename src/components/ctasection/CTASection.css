@@ -1,0 +1,1144 @@
+/* =========================================================
+   CTA SECTION
+========================================================= */
+
+.cta-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-height: 760px;
+
+  display: flex;
+  align-items: center;
+
+  background: var(--bg-primary);
+}
+
+
+/* =========================================================
+   BACKGROUND EFFECTS
+========================================================= */
+
+.cta-bg-effects {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   AMBIENT GLOWS
+========================================================= */
+
+.cta-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+
+.cta-glow-1 {
+  width: 500px;
+  height: 500px;
+
+  left: -250px;
+  top: -180px;
+
+  background: rgba(20, 220, 170, 0.10);
+}
+
+
+.cta-glow-2 {
+  width: 550px;
+  height: 550px;
+
+  right: -250px;
+  bottom: -300px;
+
+  background: rgba(0, 210, 220, 0.09);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.cta-grid-overlay {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.10;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 20%,
+      black 80%,
+      transparent 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 20%,
+      black 80%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================================
+   MAIN TWO-COLUMN LAYOUT
+   (Image on left, content on right)
+========================================================= */
+
+.cta-layout {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  max-width: 1320px;
+
+  margin: 0 auto;
+
+  padding:
+    105px 40px
+    100px;
+
+  display: grid;
+
+  /*
+    LEFT = image
+    RIGHT = content
+  */
+  grid-template-columns:
+    minmax(420px, 0.82fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+
+/* =========================================================
+   RIGHT CONTENT
+========================================================= */
+
+.cta-content {
+  position: relative;
+
+  z-index: 5;
+
+  min-width: 0;
+
+  max-width: 720px;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.cta-badge {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    9px 20px;
+
+  margin-bottom:
+    30px;
+
+  border:
+    1px solid
+    rgba(28, 230, 183, 0.32);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(5, 30, 31, 0.50);
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05),
+
+    0 0 30px
+    rgba(20, 220, 170, 0.06);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+}
+
+
+.cta-badge span {
+  color:
+    #20ddb2;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.15em;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   HEADLINE
+========================================================= */
+
+.cta-headline {
+  margin: 0;
+
+  max-width:
+    720px;
+
+  color:
+    #f5f7f8;
+
+  font-size:
+    clamp(
+      56px,
+      5.2vw,
+      84px
+    );
+
+  font-weight:
+    700;
+
+  line-height:
+    0.99;
+
+  letter-spacing:
+    -0.055em;
+
+  text-wrap:
+    balance;
+
+  text-shadow:
+    0 5px 35px
+    rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   GRADIENT TEXT
+========================================================= */
+
+.cta-headline .text-gradient {
+  display: inline-block;
+
+  background:
+    linear-gradient(
+      110deg,
+      #35e5b2 0%,
+      #22ddd0 55%,
+      #20d6df 100%
+    );
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  color:
+    transparent;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.cta-description {
+  max-width:
+    650px;
+
+  margin:
+    34px 0 0;
+
+  color:
+    rgba(224, 232, 235, 0.68);
+
+  font-size:
+    16px;
+
+  line-height:
+    1.75;
+
+  letter-spacing:
+    -0.01em;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.cta-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    13px;
+
+  margin-top:
+    38px;
+}
+
+
+/* =========================================================
+   BASE BUTTON
+========================================================= */
+
+.cta-btn {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap:
+    10px;
+
+  min-height:
+    58px;
+
+  padding:
+    0 25px;
+
+  border-radius:
+    12px;
+
+  font-family:
+    inherit;
+
+  font-size:
+    14px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+
+  overflow:
+    hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.cta-btn-primary {
+  color:
+    #041312;
+
+  border:
+    1px solid
+    rgba(73, 255, 204, 0.65);
+
+  background:
+    linear-gradient(
+      135deg,
+      #22d9a5,
+      #14bfa1
+    );
+
+  box-shadow:
+    0 12px 40px
+    rgba(18, 211, 166, 0.20),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.25);
+}
+
+
+.cta-btn-primary:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 18px 50px
+    rgba(18, 211, 166, 0.30),
+
+    0 0 30px
+    rgba(18, 211, 166, 0.12);
+}
+
+
+/* =========================================================
+   BUTTON SHINE
+========================================================= */
+
+.cta-btn-primary::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+
+  transform:
+    skewX(-20deg);
+
+  transition:
+    left 0.65s ease;
+}
+
+
+.cta-btn-primary:hover::before {
+  left:
+    140%;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.cta-btn-arrow {
+  transition:
+    transform 0.25s ease;
+}
+
+
+.cta-btn-primary:hover
+.cta-btn-arrow {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.cta-btn-secondary {
+  color:
+    #edf5f5;
+
+  border:
+    1px solid
+    rgba(38, 213, 222, 0.28);
+
+  background:
+    rgba(4, 19, 24, 0.52);
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.04);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+}
+
+
+.cta-btn-secondary:hover {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    rgba(38, 213, 222, 0.55);
+
+  background:
+    rgba(7, 30, 34, 0.72);
+
+  box-shadow:
+    0 12px 40px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   TRUST INDICATORS
+========================================================= */
+
+.cta-trust {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    18px;
+
+  margin-top:
+    38px;
+
+  padding-top:
+    24px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.trust-item {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    7px;
+
+  color:
+    rgba(205, 220, 223, 0.52);
+
+  font-size:
+    11px;
+
+  white-space:
+    nowrap;
+}
+
+
+.trust-item svg {
+  color:
+    #19cda9;
+
+  flex-shrink:
+    0;
+}
+
+
+.trust-divider {
+  width:
+    1px;
+
+  height:
+    14px;
+
+  background:
+    rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   LEFT IMAGE
+========================================================= */
+
+.cta-visual {
+  position: relative;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    520px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+
+/* =========================================================
+   IMAGE FRAME
+========================================================= */
+
+.cta-image-frame {
+  position: relative;
+
+  width:
+    100%;
+
+  height:
+    540px;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    30px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  background:
+    #071419;
+
+  box-shadow:
+    0 35px 100px
+    rgba(0, 0, 0, 0.45),
+
+    0 0 80px
+    rgba(20, 220, 170, 0.07);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.cta-image-frame img {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+  object-position:
+    center;
+
+  filter:
+    saturate(0.82)
+    contrast(1.04)
+    brightness(0.82);
+
+  transform:
+    scale(1.04);
+
+  transition:
+    transform 0.8s ease;
+}
+
+
+.cta-image-frame:hover img {
+  transform:
+    scale(1.07);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.cta-image-overlay {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1, 10, 15, 0.58) 0%,
+      rgba(1, 10, 15, 0.05) 45%,
+      transparent 75%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(1, 10, 15, 0.05) 0%,
+      transparent 55%,
+      rgba(1, 10, 15, 0.65) 100%
+    );
+}
+
+
+/* =========================================================
+   IMAGE GLOW
+========================================================= */
+
+.cta-image-glow {
+  position:
+    absolute;
+
+  width:
+    260px;
+
+  height:
+    260px;
+
+  right:
+    -100px;
+
+  bottom:
+    -120px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(20, 220, 170, 0.18);
+
+  filter:
+    blur(80px);
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   FLOATING CARD
+   (sits on the right edge of the image)
+========================================================= */
+
+.cta-floating-card {
+  position:
+    absolute;
+
+  right:
+    -30px;
+
+  left:
+    auto;
+
+  bottom:
+    35px;
+
+  z-index:
+    10;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  min-width:
+    225px;
+
+  padding:
+    15px 18px;
+
+  border:
+    1px solid
+    rgba(49, 226, 192, 0.22);
+
+  border-radius:
+    14px;
+
+  background:
+    rgba(5, 18, 22, 0.82);
+
+  box-shadow:
+    0 20px 50px
+    rgba(0, 0, 0, 0.40),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+}
+
+
+/* =========================================================
+   FLOATING CARD DOT
+========================================================= */
+
+.floating-card-dot {
+  width:
+    9px;
+
+  height:
+    9px;
+
+  flex-shrink:
+    0;
+
+  border-radius:
+    50%;
+
+  background:
+    #22ddb2;
+
+  box-shadow:
+    0 0 15px
+    rgba(34, 221, 178, 0.75);
+}
+
+
+/* =========================================================
+   FLOATING CARD CONTENT
+========================================================= */
+
+.floating-card-content {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    3px;
+}
+
+
+.floating-card-content strong {
+  color:
+    #eef8f7;
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+}
+
+
+.floating-card-content span {
+  color:
+    rgba(211, 226, 228, 0.52);
+
+  font-size:
+    10px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .cta-layout {
+    grid-template-columns:
+      minmax(350px, 0.78fr)
+      minmax(0, 1fr);
+
+    gap:
+      50px;
+
+    padding:
+      90px 30px;
+  }
+
+
+  .cta-headline {
+    font-size:
+      clamp(
+        50px,
+        6vw,
+        74px
+      );
+  }
+
+
+  .cta-image-frame {
+    height:
+      470px;
+  }
+
+
+  .cta-floating-card {
+    right:
+      -20px;
+
+    left:
+      auto;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .cta-section {
+    min-height:
+      auto;
+  }
+
+
+  .cta-layout {
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    gap:
+      55px;
+
+    padding:
+      85px 20px
+      80px;
+  }
+
+
+  .cta-content {
+    max-width:
+      100%;
+
+    text-align:
+      center;
+  }
+
+
+  .cta-headline {
+    font-size:
+      clamp(
+        45px,
+        12vw,
+        65px
+      );
+  }
+
+
+  .cta-description {
+    margin:
+      28px auto 0;
+
+    max-width:
+      600px;
+
+    font-size:
+      15px;
+  }
+
+
+  .cta-buttons {
+    flex-direction:
+      column;
+
+    justify-content:
+      center;
+
+    margin-top:
+      34px;
+  }
+
+
+  .cta-btn {
+    width:
+      min(
+        100%,
+        340px
+      );
+  }
+
+
+  .cta-trust {
+    justify-content:
+      center;
+
+    flex-wrap:
+      wrap;
+
+    margin-top:
+      35px;
+  }
+
+
+  .cta-visual {
+    width:
+      100%;
+
+    min-height:
+      400px;
+  }
+
+
+  .cta-image-frame {
+    height:
+      430px;
+
+    border-radius:
+      25px;
+  }
+
+
+  .cta-floating-card {
+    left:
+      15px;
+
+    right:
+      auto;
+
+    bottom:
+      20px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .cta-layout {
+    padding:
+      70px 16px
+      65px;
+  }
+
+
+  .cta-headline {
+    font-size:
+      43px;
+
+    letter-spacing:
+      -0.045em;
+  }
+
+
+  .cta-description {
+    font-size:
+      14px;
+
+    line-height:
+      1.65;
+  }
+
+
+  .cta-image-frame {
+    height:
+      360px;
+
+    border-radius:
+      22px;
+  }
+
+
+  .cta-floating-card {
+    left:
+      10px;
+
+    right:
+      auto;
+
+    bottom:
+      15px;
+
+    min-width:
+      205px;
+
+    padding:
+      12px 14px;
+  }
+
+
+  .cta-trust {
+    gap:
+      12px;
+  }
+
+
+  .trust-divider {
+    display:
+      none;
+  }
+
+
+  .trust-item {
+    font-size:
+      10px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cta-btn,
+  .cta-btn-arrow,
+  .cta-btn-primary::before,
+  .cta-image-frame img {
+    transition:
+      none;
+  }
+
+
+  .cta-btn:hover {
+    transform:
+      none;
+  }
+
+
+  .cta-image-frame:hover img {
+    transform:
+      scale(1.04);
+  }
+
+}

@@ -1,0 +1,235 @@
+/* Color Palette Variables */
+:root {
+  --color-emerald: #10b981;
+  --color-emerald-glow: rgba(16, 185, 129, 0.35);
+  
+  --color-blue: #0091ff;
+  --color-blue-glow: rgba(0, 145, 255, 0.35);
+  
+  --color-amber: #f59e0b;
+  --color-amber-glow: rgba(245, 158, 11, 0.35);
+  
+  --color-yellow: #facc15;
+  --color-yellow-glow: rgba(250, 204, 21, 0.35);
+}
+
+.how-it-works-section {
+  position: relative;
+  background-color: #030812;
+  color: #ffffff;
+  padding: 80px 24px;
+  overflow: hidden;
+}
+
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.how-it-works-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 64px;
+}
+
+.eyebrow {
+  color: #10b981;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.how-it-works-title {
+  font-family: serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  margin: 0;
+  color: #ffffff;
+}
+
+.header-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+  max-width: 320px;
+  text-align: right;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Grid Flow Layout */
+.how-it-works-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.step-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.step-item:hover {
+  transform: translateY(-6px) !important;
+}
+
+/* Icon Circle Styling & Glow Effects */
+.icon-circle-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.icon-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 20, 30, 0.6);
+  border: 1.5px solid currentColor;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.step-icon {
+  width: 44px;
+  height: 44px;
+  stroke-width: 1.5;
+}
+
+/* Theme Color Variants */
+.theme-emerald {
+  color: var(--color-emerald);
+}
+
+.theme-emerald .icon-circle {
+  box-shadow: 0 0 25px var(--color-emerald-glow);
+}
+
+.theme-blue {
+  color: var(--color-blue);
+}
+
+.theme-blue .icon-circle {
+  box-shadow: 0 0 25px var(--color-blue-glow);
+}
+
+.theme-amber {
+  color: var(--color-amber);
+}
+
+.theme-amber .icon-circle {
+  box-shadow: 0 0 25px var(--color-amber-glow);
+}
+
+.theme-yellow {
+  color: var(--color-yellow);
+}
+
+.theme-yellow .icon-circle {
+  box-shadow: 0 0 25px var(--color-yellow-glow);
+}
+
+/* Hover Enhancement */
+.step-item:hover .icon-circle {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px currentColor;
+}
+
+/* Title & Number Layout */
+.step-title-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.step-number {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: currentColor;
+}
+
+.step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Step Description */
+.step-description {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 220px;
+}
+
+/* Arrow Separators */
+.step-arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 42px;
+  color: #10b981;
+}
+
+.step-arrow {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .how-it-works-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .header-subtitle {
+    text-align: left;
+  }
+
+  .how-it-works-flow {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    gap: 40px 24px;
+  }
+
+  .step-arrow-container {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .how-it-works-flow {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .icon-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .step-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
