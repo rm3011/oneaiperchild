@@ -8,7 +8,7 @@ import {
   Sparkles,
   ArrowRight
 } from 'lucide-react';
-import './MissionVision.css';
+import './missionVision.css';
 
 type TabType = 'promise' | 'vision' | 'mission' | 'values';
 type ThemeType = 'yellow' | 'blue' | 'emerald' | 'amber';
