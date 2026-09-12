@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-import { Send } from 'lucide-react';
 import './Footer.css';
 
 // X (Twitter) Custom SVG Icon
@@ -33,16 +31,6 @@ const InstagramIcon = () => (
 );
 
 const Footer: React.FC = () => {
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      // Handle subscription logic
-      console.log('Subscribed with:', email);
-      setEmail('');
-    }
-  };
 
   return (
     <footer className="footer-section">
