@@ -284,27 +284,8 @@
   margin: 0;
 }
 
-.banner-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.82rem;
-  color: var(--color-emerald);
-  text-decoration: none;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: gap 0.3s ease, opacity 0.2s ease;
-}
 
-.banner-link:hover {
-  opacity: 0.85;
-  gap: 10px;
-}
 
-.link-arrow {
-  width: 14px;
-  height: 14px;
-}
 
 /* =========================================================
    IMAGE CARD
@@ -414,7 +395,7 @@
   margin: 0 0 20px 0;
 }
 
-.cta-button {
+/*.cta-button {
   background: linear-gradient(135deg, var(--color-emerald), #00d8d6);
   color: #020b14;
   border: none;
@@ -443,10 +424,11 @@
   height: 16px;
   transition: transform 0.3s ease;
 }
+  
 
 .cta-button:hover .btn-arrow {
   transform: translateX(4px);
-}
+} */
 
 .cta-illustration {
   width: 35%;

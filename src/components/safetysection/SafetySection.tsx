@@ -4,8 +4,7 @@ import {
   Lock, 
   Users, 
   MessageSquareCode, 
-  SlidersHorizontal, 
-  ArrowRight 
+  SlidersHorizontal
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
@@ -76,7 +75,7 @@ const cardVariants: Variants = {
 
 const SafetySection: React.FC = () => {
   return (
-    <section className="safety-section">
+    <section id="impacts" className="safety-section">
       <div className="safety-container">
         <motion.div 
           className="safety-grid-layout"
@@ -128,9 +127,6 @@ const SafetySection: React.FC = () => {
                   We follow global standards for child safety and data protection.
                 </p>
               </div>
-              <a href="#learn-more" className="banner-link">
-                Learn more <ArrowRight className="link-arrow" />
-              </a>
             </div>
           </motion.div>
 
@@ -155,9 +151,6 @@ const SafetySection: React.FC = () => {
                     We follow global standards for child safety and data protection.
                   </p>
                 </div>
-                <a href="#learn-more" className="banner-link">
-                  Learn more <ArrowRight className="link-arrow" />
-                </a>
               </div>
             </motion.div>
 
@@ -170,9 +163,6 @@ const SafetySection: React.FC = () => {
                 <p className="cta-description">
                   Join schools, educators, partners and supporters who believe every child deserves access to a personal AI for learning and growth.
                 </p>
-                <button className="cta-button">
-                  Join the Mission <ArrowRight className="btn-arrow" />
-                </button>
               </div>
 
               {/* Vector Illustration Container */}

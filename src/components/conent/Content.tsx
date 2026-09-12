@@ -87,7 +87,7 @@ const arrowVariants: Variants = {
 
 const Content = () => {
   return (
-    <section className="how-it-works-section section">
+    <section id="who-we-are" className="how-it-works-section section">
       <div className="container-custom">
         {/* Header with entrance animation */}
         <motion.div 

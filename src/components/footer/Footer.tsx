@@ -98,22 +98,6 @@ const Footer: React.FC = () => {
             <p className="newsletter-text">
               Get updates on our journey and how you can help.
             </p>
-            
-            <form onSubmit={handleSubmit} className="newsletter-form">
-              <div className="input-group">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="newsletter-input"
-                  required
-                />
-                <button type="submit" className="newsletter-btn" aria-label="Subscribe">
-                  <Send className="send-icon" />
-                </button>
-              </div>
-            </form>
 
             {/* Social Icons */}
             <div className="social-links">

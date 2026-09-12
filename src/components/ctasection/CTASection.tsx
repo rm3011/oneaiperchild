@@ -5,7 +5,7 @@ import './CTASection.css';
 
 const CTASection: React.FC = () => {
   return (
-    <section className="cta-section section section-border">
+    <section id="get-involved" className="cta-section section section-border">
 
       {/* Background atmosphere */}
       <div className="cta-bg-effects" aria-hidden="true">
