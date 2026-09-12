@@ -1,39 +1,40 @@
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
 .hero-section {
+  /* Single source of truth for layout */
+  --hero-pad-l: 80px;
+  --hero-pad-r: 40px;
+  --hero-content-w: 55%;
+  --hero-desc-w: 520px;
+  --fade-stop-1: 15%;
+  --fade-stop-2: 50%;
+
   position: relative;
-  min-height: min(900px, 100svh); 
-  max-height: 100vh;
   width: 100%;
+  min-height: min(900px, 100svh);
   overflow: hidden;
   display: flex;
   align-items: center;
   background: var(--bg-primary);
 }
 
-/* Background wrapper */
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
 .hero-background {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: 1;
   pointer-events: none;
-}
-
-/* Image container - positioned on the right */
-.hero-image-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 
-/* The actual image */
 .hero-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -41,40 +42,36 @@
   display: block;
 }
 
-/* Fade overlay - creates the fade effect from left to right */
 .hero-fade-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  z-index: 2;
   background: linear-gradient(
     to right,
     var(--bg-primary) 0%,
-    var(--bg-primary) 15%,
-    transparent 50%,
+    var(--bg-primary) var(--fade-stop-1),
+    transparent var(--fade-stop-2),
     transparent 100%
   );
-  z-index: 2;
 }
 
-/* Container positioning - removed container-custom to have full control */
+/* =========================================================
+   LAYOUT
+========================================================= */
+
 .hero-container {
   position: relative;
   z-index: 3;
   width: 100%;
   padding-block: 40px;
-  padding-left: 80px; /* Added significant left padding to push everything right */
-  padding-right: 40px;
+  padding-left: var(--hero-pad-l);
+  padding-right: var(--hero-pad-r);
 }
 
-/* Content wrapper with max-width to control text width */
-.hero-content-wrapper {
-  max-width: 55%;
-  padding-right: 20px;
+.hero-content {
+  max-width: var(--hero-content-w);
 }
 
-/* Text wrapper for animation */
 .hero-text-wrapper {
   animation: heroFadeIn 700ms ease forwards;
   opacity: 0;
@@ -88,44 +85,59 @@
   }
 }
 
-/* Heading styles */
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
 .hero-heading {
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   display: flex;
   flex-direction: column;
-  gap: 0;
+}
+
+.heading-line-one,
+.heading-line-two {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
 }
 
 .heading-line-one {
   color: var(--text-primary);
-  font-family: var(--font-display);
-  font-size: clamp(2.75rem, 7vw, 5.5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.045em;
-  display: block;
 }
 
-.heading-line-two {
-  font-family: var(--font-display);
-  font-size: clamp(2.75rem, 7vw, 5.5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.045em;
-  display: block;
-}
-
-/* Description text */
 .hero-description {
   color: var(--text-secondary);
+  font-family: var(--font-sans);
   font-size: clamp(1rem, 1.2vw, 1.25rem);
   line-height: 1.6;
-  margin-bottom: 32px;
-  max-width: 520px;
-  font-family: var(--font-sans);
+  margin: 0 0 32px;
+  max-width: var(--hero-desc-w);
 }
 
-/* Buttons wrapper */
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.hero-section .eyebrow {
+  margin-bottom: 20px;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+
+.hero-section .eyebrow span {
+  color: var(--text-muted);
+  opacity: 0.5;
+  margin: 0 4px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
 .hero-buttons {
   display: flex;
   gap: 16px;
@@ -133,7 +145,13 @@
   align-items: center;
 }
 
-/* Icon styles for buttons */
+.hero-buttons .btn-primary-custom,
+.hero-buttons .btn-secondary-custom {
+  min-height: 52px;
+  padding: 0 28px;
+  font-size: 15px;
+}
+
 .btn-icon {
   font-size: 18px;
   line-height: 1;
@@ -148,183 +166,106 @@
   transform: scale(1.1);
 }
 
-/* Override button styles for hero context */
-.hero-buttons .btn-primary-custom {
-  min-height: 52px;
-  padding: 0 28px;
-  font-size: 15px;
-}
-
-.hero-buttons .btn-secondary-custom {
-  min-height: 52px;
-  padding: 0 28px;
-  font-size: 15px;
-}
-
-/* Eyebrow override for hero context */
-.hero-section .eyebrow {
-  margin-bottom: 20px;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-}
-
-.hero-section .eyebrow span {
-  color: var(--text-muted);
-  opacity: 0.5;
-  margin: 0 4px;
-}
-
 /* =========================================================
-   RESPONSIVE - TABLET
-   ========================================================= */
+   RESPONSIVE — only overrides
+========================================================= */
 
+/* Tablet */
 @media (max-width: 992px) {
   .hero-section {
+    --hero-pad-l: 50px;
+    --hero-pad-r: 30px;
+    --hero-content-w: 60%;
+    --hero-desc-w: 440px;
+    --fade-stop-1: 15%;
+    --fade-stop-2: 55%;
+
     min-height: min(800px, 100svh);
   }
-  
-  .hero-image-container {
-    width: 75%;
-  }
-  
-  .hero-container {
-    padding-left: 50px; /* Reduced padding on tablet */
-    padding-right: 30px;
-  }
-  
-  .hero-content-wrapper {
-    max-width: 60%;
-  }
-  
-  .hero-description {
-    max-width: 440px;
-  }
-  
-  .hero-fade-overlay {
-    background: linear-gradient(
-      to right,
-      var(--bg-primary) 0%,
-      var(--bg-primary) 20%,
-      transparent 55%,
-      transparent 100%
-    );
+
+  .hero-image {
+    object-position: 65% center;
   }
 }
 
-/* =========================================================
-   RESPONSIVE - MOBILE
-   ========================================================= */
-
+/* Mobile */
 @media (max-width: 768px) {
   .hero-section {
-    min-height: min(700px, 100svh);
+    --hero-pad-l: 30px;
+    --hero-pad-r: 20px;
+    --hero-content-w: 85%;
+    --hero-desc-w: 100%;
+    --fade-stop-1: 20%;
+    --fade-stop-2: 70%;
+
+    min-height: min(720px, 100svh);
     align-items: flex-start;
-    padding-top: 60px;
+    padding-top: 100px;
   }
-  
-  .hero-image-container {
-    width: 85%;
+
+  .hero-image {
+    object-position: 70% center;
   }
-  
-  .hero-container {
-    padding-left: 30px; /* Further reduced on mobile */
-    padding-right: 20px;
-  }
-  
-  .hero-content-wrapper {
-    max-width: 75%;
-  }
-  
-  .hero-text-wrapper {
-    text-align: left;
-  }
-  
+
   .hero-description {
-    max-width: 100%;
     font-size: clamp(0.95rem, 2.5vw, 1.1rem);
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
     gap: 12px;
   }
-  
+
   .hero-buttons .btn-primary-custom,
   .hero-buttons .btn-secondary-custom {
     width: 100%;
     justify-content: center;
   }
-  
-  .hero-fade-overlay {
-    background: linear-gradient(
-      to right,
-      var(--bg-primary) 0%,
-      var(--bg-primary) 25%,
-      transparent 60%,
-      transparent 100%
-    );
-  }
-  
+
   .heading-line-one,
   .heading-line-two {
     font-size: clamp(2.25rem, 10vw, 3.5rem);
   }
-  
+
   .btn-icon {
     font-size: 16px;
   }
 }
 
-/* =========================================================
-   RESPONSIVE - SMALL MOBILE
-   ========================================================= */
-
+/* Small mobile */
 @media (max-width: 480px) {
   .hero-section {
-    min-height: min(600px, 100svh);
-    padding-top: 40px;
+    --hero-pad-l: 20px;
+    --hero-pad-r: 15px;
+    --hero-content-w: 100%;
+    --fade-stop-1: 15%;
+    --fade-stop-2: 75%;
+
+    min-height: min(680px, 100svh);
+    padding-top: 90px;
   }
-  
-  .hero-image-container {
-    width: 90%;
+
+  .hero-image {
+    object-position: 75% center;
   }
-  
-  .hero-container {
-    padding-left: 20px; /* Minimal padding on small mobile */
-    padding-right: 15px;
-  }
-  
-  .hero-content-wrapper {
-    max-width: 85%;
-  }
-  
+
   .hero-description {
     font-size: 0.95rem;
   }
-  
+
   .hero-buttons .btn-primary-custom,
   .hero-buttons .btn-secondary-custom {
     min-height: 48px;
-    font-size: 14px;
     padding: 0 20px;
+    font-size: 14px;
   }
-  
+
   .heading-line-one,
   .heading-line-two {
     font-size: clamp(2rem, 12vw, 2.75rem);
   }
-  
-  .hero-fade-overlay {
-    background: linear-gradient(
-      to right,
-      var(--bg-primary) 0%,
-      var(--bg-primary) 30%,
-      transparent 65%,
-      transparent 100%
-    );
-  }
-  
+
   .btn-icon {
     font-size: 14px;
   }
@@ -332,7 +273,7 @@
 
 /* =========================================================
    REDUCED MOTION
-   ========================================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .hero-text-wrapper {
@@ -340,11 +281,12 @@
     opacity: 1;
     transform: none;
   }
-  
-  .btn-primary-custom:hover .btn-icon {
-    transform: none;
+
+  .btn-icon {
+    transition: none;
   }
-  
+
+  .btn-primary-custom:hover .btn-icon,
   .btn-secondary-custom:hover .btn-icon {
     transform: none;
   }
