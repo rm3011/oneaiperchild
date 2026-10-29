@@ -1,9 +1,62 @@
-import React from 'react';
+import React, { useEffect, useRef, useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Heart, Users, Shield } from 'lucide-react';
+import { ArrowRight, Heart, Users, Shield, X } from 'lucide-react';
 import './CTASection.css';
 
+type InquiryType = 'donation' | 'partnership';
+
 const CTASection: React.FC = () => {
+  const [inquiryType, setInquiryType] = useState<InquiryType | null>(null);
+  const firstNameRef = useRef<HTMLInputElement>(null);
+  const activeTriggerRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (!inquiryType) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    firstNameRef.current?.focus();
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setInquiryType(null);
+    };
+
+    window.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', closeOnEscape);
+      activeTriggerRef.current?.focus();
+    };
+  }, [inquiryType]);
+
+  const openInquiryForm = (
+    type: InquiryType,
+    trigger: HTMLButtonElement
+  ) => {
+    activeTriggerRef.current = trigger;
+    setInquiryType(type);
+  };
+
+  const submitInquiry = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!inquiryType) return;
+
+    const formData = new FormData(event.currentTarget);
+    const firstName = String(formData.get('firstName') ?? '');
+    const lastName = String(formData.get('lastName') ?? '');
+    const email = String(formData.get('email') ?? '');
+    const subject = inquiryType === 'donation'
+      ? 'Donation inquiry'
+      : 'Partnership inquiry';
+    const body = [
+      `Name: ${firstName} ${lastName}`,
+      `Email: ${email}`,
+      `Inquiry: ${subject}`
+    ].join('\n');
+
+    window.location.href = `mailto:info@nevas.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <section id="get-involved" className="cta-section section section-border">
       {/* Ambient background */}
@@ -100,6 +153,7 @@ const CTASection: React.FC = () => {
                 type="button"
                 className="cta-btn cta-btn-primary"
                 aria-label="Donate to support our mission"
+                onClick={(event) => openInquiryForm('donation', event.currentTarget)}
               >
                 <Heart size={18} />
                 <span>Donate Now</span>
@@ -110,6 +164,7 @@ const CTASection: React.FC = () => {
                 type="button"
                 className="cta-btn cta-btn-secondary"
                 aria-label="Partner with us"
+                onClick={(event) => openInquiryForm('partnership', event.currentTarget)}
               >
                 <Users size={18} />
                 <span>Partner With Us</span>
@@ -141,6 +196,80 @@ const CTASection: React.FC = () => {
           </motion.div>
         </div>
       </div>
+
+      {inquiryType && (
+        <div className="cta-form-backdrop">
+          <button
+            type="button"
+            className="cta-form-backdrop-button"
+            aria-label="Close contact form"
+            onClick={() => setInquiryType(null)}
+          />
+          <div
+            className="cta-inquiry-form"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cta-inquiry-title"
+          >
+            <div className="cta-form-heading">
+              <div>
+                <span className="cta-form-eyebrow">GET IN TOUCH</span>
+                <h2 id="cta-inquiry-title">
+                  {inquiryType === 'donation' ? 'Support the mission' : 'Partner with us'}
+                </h2>
+                <p>Share your details and we’ll help you take the next step.</p>
+              </div>
+              <button
+                type="button"
+                className="cta-form-close"
+                aria-label="Close contact form"
+                onClick={() => setInquiryType(null)}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <form className="cta-inquiry-fields" onSubmit={submitInquiry}>
+              <div className="cta-form-name-fields">
+                <label>
+                  First name
+                  <input
+                    ref={firstNameRef}
+                    type="text"
+                    name="firstName"
+                    autoComplete="given-name"
+                    required
+                  />
+                </label>
+                <label>
+                  Last name
+                  <input
+                    type="text"
+                    name="lastName"
+                    autoComplete="family-name"
+                    required
+                  />
+                </label>
+              </div>
+              <label>
+                Email
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  required
+                />
+              </label>
+              <p className="cta-form-note">
+                Continuing opens a pre-filled email to info@nevas.ai for you to review and send.
+              </p>
+              <button type="submit" className="cta-btn cta-btn-primary cta-form-submit">
+                Continue to email <ArrowRight size={17} />
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

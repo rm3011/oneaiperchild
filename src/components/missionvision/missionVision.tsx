@@ -271,7 +271,7 @@ const MissionVision: React.FC = () => {
 
   return (
     <section
-      id="what-we-do"
+      id="why-we-exist"
       className={`mission-vision-section section section-border mv-section-${activeContent.theme}`}
     >
 

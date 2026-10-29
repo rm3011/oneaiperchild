@@ -519,3 +519,162 @@
     transform: scale(1.04);
   }
 }
+
+.cta-form-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(1, 8, 14, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cta-form-backdrop-button {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: default;
+}
+
+.cta-inquiry-form {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 520px);
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
+  padding: 34px;
+  border: 1px solid rgba(49, 226, 192, 0.25);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at top left, rgba(20, 220, 170, 0.12), transparent 55%),
+    linear-gradient(160deg, #071927, #030c13);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55), 0 0 45px rgba(20, 220, 170, 0.08);
+}
+
+.cta-form-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.cta-form-eyebrow {
+  color: #22d9a5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.cta-form-heading h2 {
+  margin: 8px 0;
+  color: #f5f7f8;
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+.cta-form-heading p {
+  margin: 0;
+  color: rgba(224, 232, 235, 0.68);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cta-form-close {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: #dce8e7;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.cta-form-close:hover {
+  border-color: rgba(49, 226, 192, 0.45);
+  background: rgba(49, 226, 192, 0.1);
+}
+
+.cta-inquiry-fields,
+.cta-form-name-fields {
+  display: grid;
+  gap: 18px;
+}
+
+.cta-form-name-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cta-inquiry-fields label {
+  display: grid;
+  gap: 8px;
+  color: #dce8e7;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cta-inquiry-fields input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  outline: none;
+  color: #f5f7f8;
+  background: rgba(1, 9, 15, 0.66);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.cta-inquiry-fields input:focus {
+  border-color: rgba(34, 217, 165, 0.8);
+  box-shadow: 0 0 0 3px rgba(34, 217, 165, 0.14);
+}
+
+.cta-inquiry-fields input:-webkit-autofill,
+.cta-inquiry-fields input:-webkit-autofill:hover,
+.cta-inquiry-fields input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f5f7f8;
+  box-shadow: 0 0 0 1000px #07141b inset;
+}
+
+.cta-form-note {
+  margin: 0;
+  color: rgba(224, 232, 235, 0.58);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.cta-form-submit {
+  justify-self: start;
+  min-height: 50px;
+}
+
+@media (max-width: 520px) {
+  .cta-form-backdrop {
+    padding: 16px;
+  }
+
+  .cta-inquiry-form {
+    padding: 26px 20px;
+    border-radius: 18px;
+  }
+
+  .cta-form-name-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-form-submit {
+    width: 100%;
+  }
+}

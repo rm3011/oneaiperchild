@@ -15,8 +15,8 @@ function App() {
     <Router>
       <Navbar />
       <Hero />
-      <Content />
       <MissionVision />
+      <Content />
       <SafetySection />
       <CTASection />
       <Footer />

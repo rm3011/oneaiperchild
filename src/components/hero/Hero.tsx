@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './Hero.css';
 
 const Hero: React.FC = () => {
@@ -33,12 +33,9 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="hero-buttons">
-              <button className="btn-primary-custom" type="button">
+              <a className="btn-primary-custom" href="#why-we-exist">
                 Explore the Vision <ArrowRight className="btn-icon" size={18} />
-              </button>
-              <button className="btn-secondary-custom" type="button">
-                Watch the Story <Play className="btn-icon" size={18} />
-              </button>
+              </a>
             </div>
           </div>
         </div>
